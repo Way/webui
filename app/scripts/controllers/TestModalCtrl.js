@@ -4,6 +4,8 @@ angular.module('app.controllers')
 
 .controller('TestModalCtrl', function($scope, $modal, $log) {
 
+    $scope.$parent.testmodule = 'Modal';
+
     $scope.items = ['item1', 'item2', 'item3'];
 
     $scope.settings = {};
@@ -33,7 +35,7 @@ angular.module('app.controllers')
 
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
-var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+var ModalInstanceCtrl = function($scope, $modalInstance, items) {
 
     $scope.items = items;
     $scope.selected = {

@@ -1,0 +1,17 @@
+<p class="lead">This page deals as showcase for different kind of modules.</p>
+
+<div class="row">
+	<div class="col-xs-4 col-md-3">
+		<ul class="nav nav-pills nav-stacked">
+			<li ng-repeat="test in tests" ng-class="{ active: $state.includes('test.{{test | lowercase}}') }">
+				<a ui-sref="test.{{test | lowercase}}">{{test}}</a>
+			</li>
+		</ul>
+	</div>
+	<div class="col-xs-8 col-md-9">
+		<div class="panel panel-default" ng-hide="$state.is('test')">
+		    <div class="panel-heading">{{testmodule}}</div>
+		    <div class="panel-body" ui-view></div>
+		</div>
+	</div>
+</div>

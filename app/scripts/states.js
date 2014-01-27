@@ -238,27 +238,9 @@ angular.module('webuiApp')
         // --------------------------------------
         .state('test', {
             url: '/test',
-
-            // Showing off how you could return a promise from templateProvider
-            templateProvider: function ($timeout) {
-                return $timeout(function () {
-
-                    var testPages = ['Modal'];
-
-                    var html = [];
-                    html.push('<p class="lead">This page is only for testing purposes.</p>');
-                    html.push('<ul>');
-                    for (var i in testPages) {
-                        var test = testPages[i];
-                        html.push('<li>');
-                        html.push('<a ui-sref="test.' + test.toLowerCase() + '">' + test + '</a>');
-                        html.push('</li>');
-                    }
-                    html.push('</ul>');
-                    html.push('<div ui-view></div>');
-
-                    return html.join('');
-                }, 200);
+            templateUrl: 'views/test/tests.html',
+            controller: function($scope, $state) {
+                $scope.tests = ['Modal', 'Popover'];
             }
         })
 
@@ -268,7 +250,16 @@ angular.module('webuiApp')
         .state('test.modal', {
             url: '/modal',
             controller: 'TestModalCtrl',
-            templateUrl: 'views/test/modal.html'
+            templateUrl: 'views/test/modal.test.html'
+        })
+
+        //
+        // Test > Popover
+        // --------------------------------------
+        .state('test.popover', {
+            url: '/popover',
+            controller: 'TestPopoverCtrl',
+            templateUrl: 'views/test/popover.test.html'
         });
 
 });
