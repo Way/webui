@@ -49,6 +49,7 @@
                      its descendant states are activated. -->
                 <li ng-class="{ active: $state.includes('devices') }"><a ui-sref="devices.list">Devices</a></li>
                 <li ng-class="{ active: $state.includes('test') }"><a ui-sref="test">Test</a></li>
+                <li ng-class="{ active: $state.includes('links') }"><a ui-sref="links">Links</a></li>
             </ul>
             <!-- Here is a named ui-view. ui-views don't have to be named, but we'll be populate this
                  on from various different child states and we want a name to help us target. -->
@@ -94,6 +95,7 @@
     <script src="scripts/controllers/TestPopoverCtrl.js"></script>
     <!-- Resources -->
     <script src="scripts/resources/deviceResource.js"></script>
+    <script src="scripts/resources/linkResource.js"></script>
     <!-- Services -->
     <script src="scripts/services/utils.js"></script>
     <!-- endbuild -->

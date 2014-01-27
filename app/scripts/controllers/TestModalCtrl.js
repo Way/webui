@@ -35,6 +35,7 @@ angular.module('app.controllers')
 
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
+/*jshint latedef:false*/
 var ModalInstanceCtrl = function($scope, $modalInstance, items) {
 
     $scope.items = items;

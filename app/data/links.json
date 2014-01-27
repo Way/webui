@@ -1,0 +1,30 @@
+[
+	{
+		"title": "Angular directives for Bootstrap",
+		"url": "http://angular-ui.github.io/bootstrap/"
+	},
+	{
+		"title": "Bootstrap",
+		"url": "http://getbootstrap.com/css/"
+	},
+	{
+		"title": "Angular-UI / UI-Router",
+		"url": "https://github.com/angular-ui/ui-router/"
+	},
+	{
+		"title": "Multiple Named Views · angular-ui/ui-router Wiki",
+		"url": "https://github.com/angular-ui/ui-router/wiki/Multiple-Named-Views"
+	},
+	{
+		"title": "AngularJS: ngResource.$resource",
+		"url": "http://docs.angularjs.org/api/ngResource.$resource"
+	},
+	{
+		"title": "yeoman / generator-angular",
+		"url": "https://github.com/yeoman/generator-angular"
+	},
+	{
+		"title": "Yeoman - Modern workflows for modern webapps",
+		"url": "http://yeoman.io/"
+	}
+]

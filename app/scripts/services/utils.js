@@ -1,5 +1,6 @@
 'use strict';
 
+/*  jshint eqeqeq: false */
 angular.module('app.services')
 
 .factory('utils', function () {
@@ -7,9 +8,10 @@ angular.module('app.services')
     return {
 
         // Util for finding an object by its 'id' property among an array
+        /*jshint eqeqeq:false*/
         findById: function findById(a, id) {
             for (var i = 0; i < a.length; i++) {
-                if (a[i].id === id) {
+                if (a[i].id == id) {
                     return a[i];
                 }
             }

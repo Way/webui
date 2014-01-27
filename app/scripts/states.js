@@ -58,8 +58,8 @@ angular.module('webuiApp')
             // resolved before instantiation. Non-promise return values are considered
             // to be resolved immediately.
             resolve: {
-                devices: ['devices', function(devices){
-                    return devices.all();
+                devices: ['DeviceResource', function(DeviceResource){
+                    return DeviceResource.all();
                 }]
             },
 
@@ -239,7 +239,7 @@ angular.module('webuiApp')
         .state('test', {
             url: '/test',
             templateUrl: 'views/test/tests.html',
-            controller: function($scope, $state) {
+            controller: function($scope) {
                 $scope.tests = ['Modal', 'Popover'];
             }
         })
@@ -260,6 +260,35 @@ angular.module('webuiApp')
             url: '/popover',
             controller: 'TestPopoverCtrl',
             templateUrl: 'views/test/popover.test.html'
+        })
+
+        //
+        // Links
+        // --------------------------------------
+        .state('links', {
+            url: '/links',
+            templateProvider: function() {
+                var html = [];
+                html.push('<p class="lead">List of useful links</p>');
+                html.push('<div class="list-group">');
+                html.push('<a ng-repeat="link in links | orderBy:\'title\'" href="{{link.url}}" target="_blank" class="list-group-item">');
+                html.push('<h4 class="list-group-item-heading">{{link.title}}</h4>');
+                html.push('<p class="list-group-item-text">{{link.url}}</p>');
+                html.push('</a>');
+                html.push('</div>');
+                return html.join('');
+            },
+            controller: function($scope, links) {
+                $scope.links = links;
+            },
+            resolve: {
+                links: function(LinkResource){
+                    // 'query':  {method:'GET', isArray:true},
+                    // (@see http://docs.angularjs.org/api/ngResource.$resource)
+                    return LinkResource.query();
+                }
+            }
         });
+
 
 });
