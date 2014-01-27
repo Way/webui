@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Modal</div>
+    <div class="panel-body">
+        <div class="well">
+            <div class="checkbox">
+                <label><input type="checkbox" ng-model="settings.backdrop"> Backdrop</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" ng-model="settings.keyboard"> Keyboard (Esc)</label>
+            </div>
+        </div>
+
+        <p>
+            <button class="btn btn-default" ng-click="open()">Open me!</button>
+        </p>
+
+        <div class="alert alert-info" ng-show="selected">Selection from a modal: {{ selected }}</div>
+    </div>
+</div>

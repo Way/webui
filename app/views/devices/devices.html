@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-xs-4 col-md-3">
+        <div class="well">
+            <ul class="list-group">
+                <li class="list-group-item" ng-class="{ active: $state.includes('devices.list') }"><a ui-sref="devices.list">All Devices</a></li>
+                <li class="list-group-item"class="nav-header">Top Devices</li>
+
+                <!-- This <li> will only add the 'active' class if 'devices.detail' or its descendants are active
+                     AND if it is the link for the active device (aka deviceId) -->
+                <li class="list-group-item"
+                    ng-repeat="device in devices | limitTo:2"
+                    ng-class="{ active: $state.includes('devices.detail') && $stateParams.deviceId == device.id }">
+
+                    <!-- Here's a ui-sref that is also providing necessary parameters -->
+                    <a ui-sref="devices.detail({deviceId:device.id})">{{device.name}}</a>
+                </li>
+            </ul>
+            
+            <hr>
+            <button class="btn btn-default" ng-click="goToRandom()">Show random device</button>
+
+            <!-- Another named view -->
+            <div ui-view="menuTip" class="slide"></div>
+        </div>
+    </div>
+
+    <!-- Our unnamed main ui-view for this template -->
+    <div ui-view class="col-xs-8 col-md-9" class="slide"></div>
+</div>

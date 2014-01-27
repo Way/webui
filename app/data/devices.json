@@ -1,0 +1,52 @@
+{
+   "devices":[
+      {
+         "id":1,
+         "name":"Device 1",
+         "settings":[
+            {
+               "id":"a",
+               "type":"Status",
+               "value":"OK"
+            },
+            {
+               "id":"b",
+               "type":"Errors",
+               "value":"0"
+            }
+         ]
+      },
+      {
+         "id":2,
+         "name":"Device 2",
+         "settings":[
+            {
+               "id":"a",
+               "type":"Status",
+               "value":"Warning"
+            },
+            {
+               "id":"b",
+               "type":"Errors",
+               "value":"0"
+            }
+         ]
+      },
+      {
+         "id":3,
+         "name":"Device 3",
+         "settings":[
+            {
+               "id":"a",
+               "type":"Status",
+               "value":"Error"
+            },
+            {
+               "id":"b",
+               "type":"Errors",
+               "value":"42"
+            }
+         ]
+      }
+   ]
+}

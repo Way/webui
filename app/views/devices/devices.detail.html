@@ -1,0 +1,17 @@
+<div>
+    <h2>{{device.name}}</h2>
+    <ul>
+        <li ng-repeat="setting in device.settings">
+
+            <!-- Here's another ui-sref except THIS time we are passing parameters
+                 AND inheriting parameters from active ancestor states. So we don't
+                 need to resupply the deviceId parameter. -->
+            <a ui-sref="devices.detail.setting({settingId:setting.id})">{{setting.type}}</a>
+        </li>
+    </ul>
+    <div ui-view class="slide">
+        <!-- Example of default content. This content will be replace as soon as
+             this ui-view is populate with a template -->
+        <small class="muted">Click on a device setting to view and/or edit it.</small>
+    </div>
+</div>

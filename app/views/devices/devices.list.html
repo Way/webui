@@ -1,0 +1,6 @@
+<h2>All Devices</h2>
+<ul>
+  	<li ng-repeat="device in devices">
+    	<a ui-sref="devices.detail({deviceId:device.id})">{{device.name}}</a>
+  	</li>
+</ul>

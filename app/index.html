@@ -1,0 +1,119 @@
+<!doctype html>
+<!--[if lt IE 7]>html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+</head>
+<body ng-app="webuiApp">
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- ui-sref is a great directive for linking a state location with an anchor link.
+                 You should almost always use ui-sref instead of href on your links when you want
+                 then to navigate to a state. When this link is clicked it will take the application
+                 to the 'home' state. Behind the scenes the directive also adds the correct href attr
+                 and url. -->
+            <a class="navbar-brand" ui-sref="home">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <!-- Here you can see ui-sref in action again. Also notice the use of $state.includes, which
+                     will set the links to 'active' if, for example on the first link, 'contacts' or any of
+                     its descendant states are activated. -->
+                <li ng-class="{ active: $state.includes('devices') }"><a ui-sref="devices.list">Devices</a></li>
+                <li ng-class="{ active: $state.includes('test') }"><a ui-sref="test">Test</a></li>
+            </ul>
+            <!-- Here is a named ui-view. ui-views don't have to be named, but we'll be populate this
+                 on from various different child states and we want a name to help us target. -->
+            <p ui-view="hint" class="navbar-text navbar-right"></p>
+        </div>
+    </div>
+
+    <!-- Here is the main ui-view (unnamed) and will be populate by its immediate children's templates
+             unless otherwise explicitly named views are targeted. -->
+    <div class="container" ui-view></div>
+
+    <pre>
+        <!-- Here's some values to keep an eye on in the sample in order to understand $state and $stateParams -->
+        $state = {{$state.current.name}}
+        $stateParams = {{$stateParams}}
+        $state full url = {{ $state.$current.url.source }}
+        <!-- $state.$current is not a public api, we are using it to
+             display the full url for learning purposes-->
+    </pre>
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <!-- App -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/states.js"></script>
+    <!-- Controllers -->
+    <script src="scripts/controllers/TestModalCtrl.js"></script>
+    <!-- Resources -->
+    <script src="scripts/resources/deviceResource.js"></script>
+    <!-- Services -->
+    <script src="scripts/services/utils.js"></script>
+    <!-- endbuild -->
+
+    <!-- Example of inline ng-template via script tag -->
+    <script type="text/ng-template" id="modal.content.html">
+        <div class="modal-header">
+            <h3>I'm a modal!</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li ng-repeat="item in items">
+                    <a ng-click="selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</body>
+</html>
